@@ -1,0 +1,41 @@
+@mixin listlink {
+    display: inline;
+}
+
+
+@mixin section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin  HeadingThree {
+    padding: 10px 20px;
+    color: lighten($backgroundcolor, 50%);
+}
+
+@mixin  HoverInput {
+    border-bottom: 4px solid $headingone;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+
+@mixin MQ($args...) {
+    @if length($args) == 1 {   
+        @media screen and(max-width: nth($args, 1)) {
+            @content;
+        }
+    }
+
+    @if length($args)  == 2 {
+        @media screen and(max-width: nth($args, 1)) and (min-width: nth($args, 2)){
+            @content;
+        }
+    }
+   
+}
